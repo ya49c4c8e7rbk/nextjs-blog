@@ -6,7 +6,7 @@ import Date from '@/components/date'
 import utilStyles from '@/styles/utils.module.css'
 import Head from 'next/Head'
 
-export const siteTitle = 'Next.js Sample Website'
+export const siteTitle = 'Next.js サンプル'
 
 export default function Home({
   allPostsData,
