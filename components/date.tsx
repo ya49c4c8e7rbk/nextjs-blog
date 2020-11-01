@@ -4,7 +4,7 @@ export default function Date({
   dateString,
 }: {
   dateString: string
-}): JSX.Element {
+}): React.ReactElement {
   const date = parseISO(dateString)
   return <time dateTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
 }
