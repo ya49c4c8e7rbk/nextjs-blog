@@ -4,10 +4,11 @@ const { parse } = require('url')
 const next = require('next')
 
 const { PORT, NODE_ENV } = process.env
-const port = parseInt(PORT, 10)
+const port = parseInt(3000, 10)
 const dev = NODE_ENV !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
+console.log(PORT)
 
 app.prepare().then(() => {
   createServer((req, res) => {
