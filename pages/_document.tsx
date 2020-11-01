@@ -30,7 +30,7 @@ export default class extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="ja">
+      <Html lang="ja-JP">
         <Head>
           <link rel="icon" href="/favicon.ico" />
           <link rel="manifest" href="/manifest.json" />
