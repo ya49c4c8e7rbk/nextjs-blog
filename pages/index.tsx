@@ -1,29 +1,27 @@
-import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
-import { getSortedPostsData } from '../lib/posts'
 import Link from 'next/link'
-import Date from '../components/date'
 import { GetStaticProps } from 'next'
+import { getSortedPostsData } from '@/lib/posts'
+import Layout from '@/components/layout'
+import Date from '@/components/date'
+import utilStyles from '@/styles/utils.module.css'
 
 export default function Home({
-  allPostsData
+  allPostsData,
 }: {
   allPostsData: {
     date: string
     title: string
     id: string
   }[]
-}) {
+}): JSX.Element {
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section className={utilStyles.headingMd}>
         <div>
           <div>ITエンジニア 8 年目</div>
-          <div>株式会社アイエンターにて Webフロントチームのリーダーとして日々奮闘中</div>
+          <div>
+            株式会社アイエンターにて Webフロントチームのリーダーとして日々奮闘中
+          </div>
           <div>好きな森のバターはアボカド</div>
         </div>
       </section>
@@ -51,7 +49,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const allPostsData = getSortedPostsData()
   return {
     props: {
-      allPostsData
-    }
+      allPostsData,
+    },
   }
 }
