@@ -1,0 +1,31 @@
+{
+    "name": "Next.js Sample",
+    "short_name": "NS",
+    "start_url": "https://nextjs-blog-peach-eight.vercel.app/",
+    "display": "standalone",
+    "background_color": "#fff",
+    "theme_color": "#39f",
+    "description": "Next.jsのサンプルソース",
+    "icons": [
+      {
+        "src": "https://d1v1b.com/images/icons/48.png",
+        "sizes": "48x48",
+        "type": "image/png"
+      },
+      {
+        "src": "https://d1v1b.com/images/icons/96.png",
+        "sizes": "96x96",
+        "type": "image/png"
+      },
+      {
+        "src": "https://d1v1b.com/images/icons/192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "https://d1v1b.com/images/icons/512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      }
+    ]
+}
