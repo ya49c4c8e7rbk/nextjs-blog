@@ -13,8 +13,8 @@ app.prepare().then(() => {
   createServer((req, res) => {
     const parsedUrl = parse(req.url, true)
     const { pathname } = parsedUrl
-    if (pathname === '/sw.js') {
-      handle(req, res, { ...parsedUrl, pathname: '/static/sw.js' })
+    if (pathname === '/service-worker.js') {
+      handle(req, res, { ...parsedUrl, pathname: '/service-worker.js' })
     } else {
       handle(req, res, parsedUrl)
     }
