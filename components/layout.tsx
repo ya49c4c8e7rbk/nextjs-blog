@@ -10,7 +10,7 @@ export default function Layout({
 }: {
   children: React.ReactNode
   home?: boolean
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <div className={styles.container}>
       <header className={styles.header}>

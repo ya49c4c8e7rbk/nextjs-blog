@@ -1,35 +1,45 @@
+import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
 import SWRegister from '@/sw-register'
+import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheets as MaterialServerStyleSheets } from '@material-ui/core'
 
 export default class extends Document {
   static async getInitialProps(ctx: any): Promise<any> {
-    const sheet = new ServerStyleSheet()
+    const styledComponentsSheet = new ServerStyleSheet()
+    const materialUiSheets = new MaterialServerStyleSheets()
     const originalRenderPage = ctx.renderPage
 
     try {
       ctx.renderPage = (): any =>
         originalRenderPage({
-          enhanceApp: (App) => (props): void =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App) => (
+            props
+          ): React.ReactElement<{
+            sheet: ServerStyleSheet
+          }> =>
+            styledComponentsSheet.collectStyles(
+              materialUiSheets.collect(<App {...props} />)
+            ),
         })
 
       const initialProps = await Document.getInitialProps(ctx)
       return {
         ...initialProps,
         styles: (
-          <>
+          <React.Fragment key="styles">
             {initialProps.styles}
-            {sheet.getStyleElement()}
-          </>
+            {styledComponentsSheet.getStyleElement()}
+            {materialUiSheets.getStyleElement()}
+          </React.Fragment>
         ),
       }
     } finally {
-      sheet.seal()
+      styledComponentsSheet.seal()
     }
   }
 
-  render(): JSX.Element {
+  render(): React.ReactElement {
     return (
       <Html lang="ja-JP">
         <Head>

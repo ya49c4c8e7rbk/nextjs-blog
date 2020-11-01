@@ -1,10 +1,10 @@
-import Link from 'next/link'
 import { GetStaticProps } from 'next'
 import { getSortedPostsData } from '@/lib/posts'
 import Layout from '@/components/layout'
 import Date from '@/components/date'
 import utilStyles from '@/styles/utils.module.css'
 import Head from 'next/head'
+import { Link } from '@material-ui/core'
 
 export const siteTitle = 'Next.js サンプル'
 
@@ -16,7 +16,7 @@ export default function Home({
     title: string
     id: string
   }[]
-}): JSX.Element {
+}): React.ReactElement {
   return (
     <Layout home>
       <Head>
@@ -48,9 +48,7 @@ export default function Home({
         <ul className={utilStyles.list}>
           {allPostsData.map(({ id, date, title }) => (
             <li className={utilStyles.listItem} key={id}>
-              <Link href={`/posts/${id}`}>
-                <a>{title}</a>
-              </Link>
+              <Link href={`/posts/${id}`}>{title}</Link>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
