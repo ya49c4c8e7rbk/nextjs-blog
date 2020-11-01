@@ -36,7 +36,7 @@ export default function Home({
       </Head>
       <section className={utilStyles.headingMd}>
         <div>
-          <div>ITエンジニア 8 年目</div>
+          <div>ITエンジニア8年目</div>
           <div>
             株式会社アイエンターにて Webフロントチームのリーダーとして日々奮闘中
           </div>
