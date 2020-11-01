@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import SWRegister from '@/sw-register'
 
 export default class extends Document {
   static async getInitialProps(ctx: any): Promise<any> {
@@ -38,6 +39,7 @@ export default class extends Document {
         <body>
           <Main />
           <NextScript />
+          <SWRegister />
         </body>
       </Html>
     )
