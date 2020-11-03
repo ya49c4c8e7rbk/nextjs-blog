@@ -1,12 +1,10 @@
 /* eslint-disable */
 const withOffline = require('next-offline')
+require('dotenv').config()
 
 const nextConfig = {
   target: 'serverless',
   transformManifest: manifest => ['/'].concat(manifest), 
-  // add the homepage to the cache
-  // Trying to set NODE_ENV=production when running yarn dev causes a build-time error so we
-  // turn on the SW in dev mode so that we can actually test it
   generateInDevMode: true,
   workboxOpts: {
     swDest: 'static/service-worker.js',
@@ -27,6 +25,14 @@ const nextConfig = {
         },
       },
     ],
+  },
+  env: {
+    NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+    NEXT_PUBLIC_FIREBASE_DATABASE_URL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+    FIREBASE_CLIENT_EMAIL: process.env.FIREBASE_CLIENT_EMAIL,
+    FIREBASE_PRIVATE_KEY: process.env.FIREBASE_PRIVATE_KEY
   }
 };
 
