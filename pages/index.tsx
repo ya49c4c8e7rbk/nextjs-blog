@@ -4,7 +4,8 @@ import Layout from '@/components/layout'
 import Date from '@/components/date'
 import utilStyles from '@/styles/utils.module.css'
 import Head from 'next/head'
-import { Link } from '@material-ui/core'
+import { Link, Button } from '@material-ui/core'
+import { useUser } from '@/utils/auth/useUser'
 
 export const siteTitle = 'Next.js サンプル'
 
@@ -17,6 +18,19 @@ export default function Home({
     id: string
   }[]
 }): React.ReactElement {
+  const { user, logout } = useUser()
+  console.log(user, 'userData')
+  if (!user) {
+    return (
+      <>
+        <div>Hi there!</div>
+        <div>
+          You are not signed in. <Link href={'/signin'}>Sign in</Link>
+        </div>
+      </>
+    )
+  }
+
   return (
     <Layout home>
       <Head>
@@ -56,6 +70,11 @@ export default function Home({
             </li>
           ))}
         </ul>
+      </section>
+      <section>
+        <Button color="primary" onClick={() => logout()}>
+          Sign out
+        </Button>
       </section>
     </Layout>
   )
