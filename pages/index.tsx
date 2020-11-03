@@ -19,7 +19,7 @@ export default function Home({
   }[]
 }): React.ReactElement {
   const { user, logout } = useUser()
-  console.log(user)
+  console.log(user, 'userData')
   if (!user) {
     return (
       <>
