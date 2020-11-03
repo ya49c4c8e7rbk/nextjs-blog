@@ -1,4 +1,7 @@
 import * as admin from 'firebase-admin'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const verifyIdToken = (token) => {
   const firebasePrivateKey = process.env.FIREBASE_PRIVATE_KEY
