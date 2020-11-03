@@ -1,12 +1,9 @@
-import FirebaseAuth from '@/components/FirebaseAuth'
+import FirebaseAuth from '@/components/firebaseAuth'
 
 export default function Auth(): React.ReactElement {
   return (
-    <div>
-      <p>Sign in!</p>
-      <div>
-        <FirebaseAuth />
-      </div>
-    </div>
+    <>
+      <FirebaseAuth />
+    </>
   )
 }

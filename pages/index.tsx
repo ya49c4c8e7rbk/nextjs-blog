@@ -2,12 +2,8 @@ import { GetStaticProps } from 'next'
 import { getSortedPostsData } from '@/lib/posts'
 import Layout from '@/components/layout'
 import Date from '@/components/date'
-import utilStyles from '@/styles/utils.module.css'
-import Head from 'next/head'
-import { Link, Button } from '@material-ui/core'
+import { Link } from '@material-ui/core'
 import { useUser } from '@/utils/auth/useUser'
-
-export const siteTitle = 'Next.js サンプル'
 
 export default function Home({
   allPostsData,
@@ -18,8 +14,8 @@ export default function Home({
     id: string
   }[]
 }): React.ReactElement {
-  const { user, logout } = useUser()
-  console.log(user, 'userData')
+  const { user } = useUser()
+
   if (!user) {
     return (
       <>
@@ -33,22 +29,7 @@ export default function Home({
 
   return (
     <Layout home>
-      <Head>
-        <meta
-          name="description"
-          content="Learn how to build a personal website using Next.js"
-        />
-        <meta
-          property="og:image"
-          content={`https://og-image.now.sh/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.zeit.co%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="og:title" content={siteTitle} />
-        <title>{siteTitle}</title>
-      </Head>
-      <section className={utilStyles.headingMd}>
+      <section>
         <div>
           <div>ITエンジニア8年目</div>
           <div>
@@ -57,24 +38,19 @@ export default function Home({
           <div>好きな森のバターはアボカド</div>
         </div>
       </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Blog</h2>
-        <ul className={utilStyles.list}>
+      <section>
+        <h2>Blog</h2>
+        <ul>
           {allPostsData.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
+            <li key={id}>
               <Link href={`/posts/${id}`}>{title}</Link>
               <br />
-              <small className={utilStyles.lightText}>
+              <small>
                 <Date dateString={date} />
               </small>
             </li>
           ))}
         </ul>
-      </section>
-      <section>
-        <Button color="primary" onClick={() => logout()}>
-          Sign out
-        </Button>
       </section>
     </Layout>
   )
