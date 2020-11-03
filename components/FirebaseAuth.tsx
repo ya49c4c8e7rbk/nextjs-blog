@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 import 'firebase/auth'
 import initFirebase from '@/utils/auth/initFirebase'
 import { setUserCookie } from '@/utils/auth/userCookies'
