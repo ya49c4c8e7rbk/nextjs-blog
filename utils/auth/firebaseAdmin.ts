@@ -25,7 +25,7 @@ export const verifyIdToken = (token) => {
           'firebase-adminsdk-nz2ui@katilo-nextjs-dev.iam.gserviceaccount.com',
         privateKey: firebasePrivateKey.replace(/\\n/g, '\n'),
       }),
-      databaseURL: process.env.NEXT_PUBLIC_FIREBASE_DATABASE_URL,
+      databaseURL: 'https://katilo-nextjs-dev.firebaseio.com',
     })
   }
 
