@@ -28,7 +28,6 @@ export default function Layout({
 
   const { user, logout } = useUser()
 
-  const [auth] = React.useState(true)
   const [anchorEl, setAnchorEl] = React.useState(null)
   const open = Boolean(anchorEl)
 
@@ -50,7 +49,7 @@ export default function Layout({
           <Typography variant="h6" className={classes.title}>
             Katilo
           </Typography>
-          {auth && user && (
+          {user && (
             <div>
               <IconButton
                 aria-label="account of current user"
