@@ -47,7 +47,7 @@ export default function Layout({
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            Katilo
+            KatiLo
           </Typography>
           {user && (
             <div>
