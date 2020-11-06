@@ -1,5 +1,3 @@
-import 'sanitize.css'
-import '@/styles/global.css'
 import { AppProps } from 'next/app'
 import { ThemeProvider as StyledComponentsThemeProvider } from 'styled-components'
 import {

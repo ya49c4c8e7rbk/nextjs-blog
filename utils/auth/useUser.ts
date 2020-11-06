@@ -37,6 +37,7 @@ const useUser = () => {
       } else {
         removeUserCookie()
         setUser(undefined)
+        router.push('/signin')
       }
     })
 
