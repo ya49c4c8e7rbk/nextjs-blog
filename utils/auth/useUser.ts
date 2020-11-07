@@ -51,7 +51,8 @@ const useUser = () => {
     return () => {
       cancelAuthListener()
     }
-  }, [router, user])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return { user, logout }
 }
