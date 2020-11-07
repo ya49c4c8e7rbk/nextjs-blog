@@ -51,7 +51,7 @@ const useUser = () => {
     return () => {
       cancelAuthListener()
     }
-  }, [])
+  }, [router, user])
 
   return { user, logout }
 }
